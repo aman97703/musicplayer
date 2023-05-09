@@ -82,7 +82,7 @@ const SongProfile = ({
     sec: "",
   });
 
-  const [seconds, setSeconds] = useState();
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
     if (currentSong) {
@@ -94,6 +94,7 @@ const SongProfile = ({
     if (currentSong) {
       stop();
       setIsPlaying(false);
+      setSeconds(0)
       setCurrTime({
         min: 0,
         sec: 0,
@@ -164,26 +165,10 @@ const SongProfile = ({
                 max={duration / 1000}
                 defaultValue={0}
                 value={seconds}
-                // color="secondary"
                 onChange={(e) => {
                   sound.seek([e.target.value]);
                 }}
               />
-              {/* <PrettoSlider
-                aria-label="pretto slider"
-                defaultValue={20}
-              /> */}
-              {/* <input
-                type="range"
-                min="0"
-                max={duration / 1000}
-                default="0"
-                value={seconds}
-                className="timeline"
-                onChange={(e) => {
-                  sound.seek([e.target.value]);
-                }}
-              /> */}
             </div>
             <div className="song_options mt-32">
               <button className="song_more_option_button">
