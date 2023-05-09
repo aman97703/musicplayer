@@ -5,7 +5,7 @@ const SongMapComponent = ({ song, setCurrentSong, setCurrentSongIndex, index, cu
   function convertToMinutesAndSeconds(seconds) {
     var minutes = Math.floor(seconds / 60);
     var remainingSeconds = seconds % 60;
-    setDuration((minutes + ":" + remainingSeconds).padStart(5, 0));
+    setDuration((minutes + ":" + remainingSeconds));
   }
   useEffect(() => {
     convertToMinutesAndSeconds(song.duration);
